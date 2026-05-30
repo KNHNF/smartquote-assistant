@@ -1,0 +1,106 @@
+{
+  "model_name": "gpt",
+  "extracted": {
+    "customer": {
+      "name": "Example Client Ltd",
+      "name_variants": [],
+      "status": "existing",
+      "contact_name": "Sarah Johnson",
+      "contact_email": "sarah.johnson@exampleclient.co.uk",
+      "contact_phone": "07700 123456",
+      "annual_form_received": "yes",
+      "billing_rate_exists": "yes"
+    },
+    "project": {
+      "name": "Rear Extension",
+      "number": "EX-2024-015",
+      "status": "existing",
+      "office_of_origin": "Bristol",
+      "category": "Residential",
+      "system_type": "standard_quote"
+    },
+    "task": {
+      "title_caps": "Structural Design for Rear Extension",
+      "description": "Full structural design package including beam calculations, foundation checks, and load assessments.",
+      "task_type": "standard",
+      "revision": "A",
+      "estimated_design_time_minutes": "360",
+      "staff_time_minutes": "360",
+      "billing_rate_category": "Standard"
+    },
+    "financial": {
+      "quoted_amount": "850",
+      "hourly_rate": "95",
+      "lump_sum_value": "0",
+      "currency": "GBP",
+      "vat_required": "yes"
+    },
+    "po": {
+      "po_required": "no",
+      "po_number": "N/A",
+      "po_status": "not_required",
+      "pro_forma_required": "no"
+    },
+    "credit": {
+      "credit_check_needed": "no",
+      "suggested_credit_limit": "\u00a310,000",
+      "trading_experience_summary": "Long-term client, good payment history.",
+      "credit_risk_score": "Low",
+      "credit_outcome": "satisfactory"
+    },
+    "designer": {
+      "designer_name": "Sample Designer",
+      "prepared_by": "Sample Designer",
+      "checked_by": "Senior Engineer",
+      "designer_notes": "No issues identified."
+    },
+    "documents": {
+      "attachments": [
+        "EX-EXT-01.pdf",
+        "EX-EXT-02.pdf"
+      ],
+      "drawing_numbers": [
+        "EX-EXT-01",
+        "EX-EXT-02"
+      ],
+      "reference_numbers": [
+        "REF-001",
+        "REF-002"
+      ],
+      "quote_template_type": "Standard",
+      "required_recipients": [
+        "sarah.johnson@exampleclient.co.uk"
+      ]
+    },
+    "tracker": {
+      "quote_date": "2024-05-12",
+      "quote_id": "Q-2024-015",
+      "project_task_revision": "EX-2024-015 / Rear Extension / A",
+      "status": "sent",
+      "next_action_date": "2024-05-15",
+      "chase_required": "no"
+    }
+  },
+  "missing": [
+    "PO number invalid format"
+  ],
+  "tracker": {
+    "quote_id": "Q-2024-015",
+    "quote_date": "2024-05-12",
+    "customer": "Example Client Ltd",
+    "project": "Rear Extension",
+    "task_title": "Structural Design for Rear Extension",
+    "quoted_amount": "850",
+    "po_status": "not_required",
+    "credit_status": "satisfactory",
+    "status": "sent",
+    "next_action_date": "2024-05-15",
+    "chase_required": "no"
+  },
+  "completion": 96,
+  "usage": {
+    "prompt_tokens": 963,
+    "completion_tokens": 625,
+    "total_tokens": 1588
+  }
+}

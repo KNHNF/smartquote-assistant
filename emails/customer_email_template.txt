@@ -1,0 +1,50 @@
+SUBJECT: Quotation for {{project.name}} – {{task.title_caps}}
+
+Good {{time_of_day}} {{customer.contact_name}},
+
+Thank you for giving us the opportunity to provide a quotation for your project. Please find the details of our proposal below.
+
+------------------------------------------------------------
+PROJECT DETAILS
+------------------------------------------------------------
+Customer: {{customer.name}}
+Project: {{project.name}}
+Task Title: {{task.title_caps}}
+Description: {{task.description}}
+Category: {{project.category}}
+Office of Origin: {{project.office_of_origin}}
+
+------------------------------------------------------------
+FINANCIAL SUMMARY
+------------------------------------------------------------
+Quoted Amount: £{{financial.quoted_amount}}
+Hourly Rate (if applicable): £{{financial.hourly_rate}}
+Lump Sum Value (if applicable): £{{financial.lump_sum_value}}
+VAT: {{financial.vat_required | upper}}
+
+------------------------------------------------------------
+PURCHASE ORDER (PO)
+------------------------------------------------------------
+PO Required: {{po.po_required}}
+PO Number: {{po.po_number}}
+PO Status: {{po.po_status}}
+
+If a PO is required and has not yet been provided, please send this at your earliest convenience so we can proceed without delay.
+
+------------------------------------------------------------
+ATTACHMENTS
+------------------------------------------------------------
+Attached:
+- Quotation PDF
+- Drawings / References (if applicable)
+
+------------------------------------------------------------
+NOTES
+------------------------------------------------------------
+{{designer.designer_notes}}
+
+If you have any questions or require amendments, please feel free to contact us. We look forward to supporting your project.
+
+Kind regards,  
+{{designer.designer_name}}  
+SmartQuote Engineering Team

@@ -1,0 +1,92 @@
+SUBJECT: Internal Summary – Quote for {{project.name}} / {{task.title_caps}}
+
+Team,
+
+A new designer quote has been processed. Below is the structured summary extracted automatically from the designer’s email.
+
+------------------------------------------------------------
+CUSTOMER INFORMATION
+------------------------------------------------------------
+Customer Name: {{customer.name}}
+Status: {{customer.status}}
+Annual Form Received: {{customer.annual_form_received}}
+Billing Rate Exists: {{customer.billing_rate_exists}}
+
+Contact:
+- Name: {{customer.contact_name}}
+- Email: {{customer.contact_email}}
+- Phone: {{customer.contact_phone}}
+
+------------------------------------------------------------
+PROJECT INFORMATION
+------------------------------------------------------------
+Project Name: {{project.name}}
+Project Number: {{project.number}}
+Project Status: {{project.status}}
+Category: {{project.category}}
+System Type: {{project.system_type}}
+
+------------------------------------------------------------
+TASK INFORMATION
+------------------------------------------------------------
+Task Title: {{task.title_caps}}
+Description: {{task.description}}
+Task Type: {{task.task_type}}
+Revision: {{task.revision}}
+Estimated Design Time: {{task.estimated_design_time_minutes}} minutes
+Staff Time: {{task.staff_time_minutes}} minutes
+Billing Rate Category: {{task.billing_rate_category}}
+
+------------------------------------------------------------
+FINANCIAL INFORMATION
+------------------------------------------------------------
+Quoted Amount: £{{financial.quoted_amount}}
+Hourly Rate: £{{financial.hourly_rate}}
+Lump Sum Value: £{{financial.lump_sum_value}}
+VAT Required: {{financial.vat_required}}
+
+------------------------------------------------------------
+PO & CREDIT CHECK
+------------------------------------------------------------
+PO Required: {{po.po_required}}
+PO Number: {{po.po_number}}
+PO Status: {{po.po_status}}
+Pro-Forma Required: {{po.pro_forma_required}}
+
+Credit Check Needed: {{credit.credit_check_needed}}
+Suggested Credit Limit: {{credit.suggested_credit_limit}}
+Credit Risk Score: {{credit.credit_risk_score}}
+Credit Outcome: {{credit.credit_outcome}}
+
+------------------------------------------------------------
+DOCUMENTS & ATTACHMENTS
+------------------------------------------------------------
+Attachments: {{documents.attachments}}
+Drawing Numbers: {{documents.drawing_numbers}}
+Reference Numbers: {{documents.reference_numbers}}
+Template Type: {{documents.quote_template_type}}
+Required Recipients: {{documents.required_recipients}}
+
+------------------------------------------------------------
+TRACKER ENTRY
+------------------------------------------------------------
+Quote Date: {{tracker.quote_date}}
+Quote ID: {{tracker.quote_id}}
+Project/Task/Revision: {{tracker.project_task_revision}}
+Status: {{tracker.status}}
+Next Action Date: {{tracker.next_action_date}}
+Chase Required: {{tracker.chase_required}}
+
+------------------------------------------------------------
+NOTES
+------------------------------------------------------------
+{{designer.designer_notes}}
+
+Please review the above and confirm:
+1. Customer match is correct  
+2. PO status is accurate  
+3. Credit outcome is acceptable  
+4. Task setup can proceed  
+
+Regards,  
+SmartQuote Assistant

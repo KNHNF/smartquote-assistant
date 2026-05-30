@@ -1,4 +1,4 @@
-# SmartQuote Assistant
+# **SmartQuote Assistant**
 
 SmartQuote Assistant is a small automation tool designed to reduce human error and manual data entry in engineering quote workflows.  
 It reads incoming emails from engineers or designers, extracts structured information using LLMs, prepares customer/admin emails, and generates a tracker row for internal systems.  
@@ -6,7 +6,7 @@ The goal is to move toward an event‑driven workflow where incoming emails auto
 
 ---
 
-## Features
+## **Features**
 
 - **LLM‑powered field extraction**  
   Supports both free local models (Mistral 7B, Phi3 Mini) and GPT mode for higher accuracy.
@@ -29,9 +29,9 @@ The goal is to move toward an event‑driven workflow where incoming emails auto
 - **Model comparison**  
   Compare extraction quality across local LLMs and GPT.
 
+---
 
-
-## Installation
+## **Installation**
 
 Clone the repository:
 
@@ -64,7 +64,41 @@ streamlit run streamlit_app.py
 
 ---
 
-## How It Works
+## **Running Local Models (Ollama)**
+
+SmartQuote Assistant supports free local models (Mistral 7B, Phi3 Mini, Hermes 7B) using **Ollama**.  
+If you want to use local mode instead of GPT, install Ollama first.
+
+### **1. Install Ollama**
+- **Windows / macOS:**  
+  [https://ollama.com/download](https://ollama.com/download)  
+- **Linux:**  
+  ```bash
+  curl -fsSL https://ollama.com/install.sh | sh
+  ```
+
+### **2. Start Ollama**
+Ollama usually starts automatically. If needed:
+
+```bash
+ollama serve
+```
+
+### **3. Pull the models you want**
+Example:
+
+```bash
+ollama pull mistral:7b
+ollama pull phi3:mini
+```
+
+### **4. Use Local Mode in the App**
+Select **Local (free)** in the Streamlit UI.  
+No API key required.
+
+---
+
+## **How It Works**
 
 ### 1. Paste or load an email  
 The engineer/designer sends a structured or semi‑structured email.  
@@ -89,51 +123,60 @@ See how different LLMs perform on the same email.
 
 ---
 
-## Architecture Overview
+## **Architecture Overview**
 
 When a new email arrives, SmartQuote Assistant follows a simple flow:
 
-1. Read the incoming email
-2. Use an LLM (local or GPT) to pull out all the structured fields
-3. Check what information is missing or unclear
-4. Build the internal tracker row
-5. Draft the customer email and the admin email
-6. Wait for supervisor approval before anything is sent
-7. (Planned) Push the approved data straight into the database and send the emails automatically
+1. Read the incoming email  
+2. Use an LLM (local or GPT) to pull out all the structured fields  
+3. Check what information is missing or unclear  
+4. Build the internal tracker row  
+5. Draft the customer email and the admin email  
+6. Wait for supervisor approval before anything is sent  
+7. *(Planned)* Push the approved data straight into the database and send the emails automatically  
 
 ---
 
-## Repository Structure
+## **Repository Structure**
 
-Application:
-  streamlit_app.py, FINAL_run_agent.py
+**Application:**  
+- `streamlit_app.py`  
+- `FINAL_run_agent.py`
 
-Core Logic:
-  extraction/, logic/, tracker/, emails/
+**Core Logic:**  
+- `extraction/`  
+- `logic/`  
+- `tracker/`  
+- `emails/`
 
-Data:
-  sample_emails/, schema/, demo_database/
+**Data:**  
+- `sample_emails/`  
+- `schema/`  
+- `demo_database/`
 
-Outputs:
-  results/
+**Outputs:**  
+- `results/`
 
-Project Files:
-  requirements.txt, README.md, LICENSE
+**Project Files:**  
+- `requirements.txt`  
+- `README.md`  
+- `LICENSE`
 
+---
 
-## Model Performance (Based on Real Results)
+## **Model Performance (Based on Real Results)**
 
-| Model       | Completion | Notes |
-|-------------|------------|-------|
-| **Phi3 Mini** | 61% | Extracts some fields, misses many |
-| **Mistral 7B** | 59% | Slightly worse on this email |
-| **GPT** | 96% | Near‑perfect extraction, correct formatting |
+| Model         | Completion | Notes |
+|---------------|------------|-------|
+| **Phi3 Mini** | 61%        | Extracts some fields, misses many |
+| **Mistral 7B**| 59%        | Slightly worse on this email |
+| **GPT**       | 96%        | Near‑perfect extraction, correct formatting |
 
 GPT is the only model that fully understood the structured email and returned almost all fields correctly.
 
 ---
 
-## Known Issues
+## **Known Issues**
 
 These do **not** affect extraction or JSON results — only the UI:
 
@@ -147,20 +190,20 @@ These are planned to be addressed in future updates.
 
 ---
 
-## Future Work
+## **Future Work**
 
-- Event‑driven automation (process emails automatically on arrival)
-- Database integration (auto‑populate internal systems)
-- Improved local model prompting
-- Better error handling for malformed emails
-- Multi‑email batch processing
-- Supervisor dashboard
-- Cleaner Streamlit UI and layout
-- Optional screenshot or GIF demo once UI stabilizes
+- Event‑driven automation (process emails automatically on arrival)  
+- Database integration (auto‑populate internal systems)  
+- Improved local model prompting  
+- Better error handling for malformed emails  
+- Multi‑email batch processing  
+- Supervisor dashboard  
+- Cleaner Streamlit UI and layout  
+- Optional screenshot or GIF demo once UI stabilizes  
 
 ---
 
-## Why This Project Exists
+## **Why This Project Exists**
 
 Engineering teams often receive structured emails from designers, but manually copying this information into internal systems is slow and error‑prone.  
 SmartQuote Assistant reduces this friction by:

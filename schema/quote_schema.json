@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SmartQuote Quote Extraction Schema",
+  "type": "object",
+
+  "properties": {
+    "customer": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "name_variants": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["existing", "new", "unknown"] },
+        "contact_name": { "type": "string" },
+        "contact_email": { "type": "string" },
+        "contact_phone": { "type": "string" },
+        "annual_form_received": { "type": "string", "enum": ["yes", "no", "unknown"] },
+        "billing_rate_exists": { "type": "string", "enum": ["yes", "no", "unknown"] }
+      },
+      "required": ["name", "status"]
+    },
+
+    "project": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "number": { "type": "string" },
+        "status": { "type": "string", "enum": ["existing", "new", "unknown"] },
+        "office_of_origin": { "type": "string" },
+        "category": { "type": "string" },
+        "system_type": {
+          "type": "string",
+          "enum": ["standard_quote", "hourly_rate", "lump_sum", "pro_forma", "unknown"]
+        }
+      }
+    },
+
+    "task": {
+      "type": "object",
+      "properties": {
+        "title_caps": { "type": "string" },
+        "description": { "type": "string" },
+        "task_type": {
+          "type": "string",
+          "enum": ["standard", "hourly", "lump_sum", "pro_forma", "unknown"]
+        },
+        "revision": { "type": "string" },
+        "estimated_design_time_minutes": { "type": ["integer", "string"] },
+        "staff_time_minutes": { "type": ["integer", "string"] },
+        "billing_rate_category": { "type": "string" }
+      }
+    },
+
+    "financial": {
+      "type": "object",
+      "properties": {
+        "quoted_amount": { "type": ["number", "string"] },
+        "hourly_rate": { "type": ["number", "string"] },
+        "lump_sum_value": { "type": ["number", "string"] },
+        "currency": { "type": "string", "enum": ["GBP"] },
+        "vat_required": { "type": "string", "enum": ["yes", "no", "unknown"] }
+      }
+    },
+
+    "po": {
+      "type": "object",
+      "properties": {
+        "po_required": { "type": "string", "enum": ["yes", "no", "unknown"] },
+        "po_number": { "type": "string" },
+        "po_status": {
+          "type": "string",
+          "enum": ["provided", "missing", "tbc", "needs_chasing", "unknown"]
+        },
+        "pro_forma_required": { "type": "string", "enum": ["yes", "no", "unknown"] }
+      }
+    },
+
+    "credit": {
+      "type": "object",
+      "properties": {
+        "credit_check_needed": { "type": "string", "enum": ["yes", "no", "unknown"] },
+        "suggested_credit_limit": { "type": "string" },
+        "trading_experience_summary": { "type": "string" },
+        "credit_risk_score": { "type": "string" },
+        "credit_outcome": {
+          "type": "string",
+          "enum": ["satisfactory", "unsatisfactory", "unclear", "unknown"]
+        }
+      }
+    },
+
+    "designer": {
+      "type": "object",
+      "properties": {
+        "designer_name": { "type": "string" },
+        "prepared_by": { "type": "string" },
+        "checked_by": { "type": "string" },
+        "designer_notes": { "type": "string" }
+      }
+    },
+
+    "documents": {
+      "type": "object",
+      "properties": {
+        "attachments": { "type": "array", "items": { "type": "string" } },
+        "drawing_numbers": { "type": "array", "items": { "type": "string" } },
+        "reference_numbers": { "type": "array", "items": { "type": "string" } },
+        "quote_template_type": { "type": "string" },
+        "required_recipients": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "tracker": {
+      "type": "object",
+      "properties": {
+        "quote_date": { "type": "string" },
+        "quote_id": { "type": "string" },
+        "project_task_revision": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": [
+            "sent",
+            "waiting_for_po",
+            "waiting_for_form",
+            "accepted",
+            "lost",
+            "revised",
+            "unknown"
+          ]
+        },
+        "next_action_date": { "type": "string" },
+        "chase_required": { "type": "string", "enum": ["yes", "no", "unknown"] }
+      }
+    }
+  },
+
+  "required": ["customer", "project", "task", "financial", "po", "credit", "designer", "documents", "tracker"]
+}

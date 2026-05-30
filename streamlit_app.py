@@ -155,7 +155,7 @@ with tab_input:
 
                 st.success("App has been reset.")
         with col_r2:
-            if st.button("Cancel", key="reset_admin_cancel"):
+            if st.button("Cancel", key="reset_cancel"):
                 st.session_state.reset_confirm = False
 
     else:

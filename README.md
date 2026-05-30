@@ -214,4 +214,6 @@ SmartQuote Assistant reduces this friction by:
 - reducing human mistakes  
 - keeping supervisors in control  
 
+Originally prototyped during a university hackathon and later expanded into a full standalone tool with improved extraction logic, UI, and local model support.
+
 It’s a step toward a fully automated quote‑to‑task pipeline.

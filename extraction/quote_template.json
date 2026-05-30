@@ -1,0 +1,78 @@
+{
+  "customer": {
+    "name": "",
+    "name_variants": [],
+    "status": "existing | new | unknown",
+    "contact_name": "",
+    "contact_email": "",
+    "contact_phone": "",
+    "annual_form_received": "yes | no | unknown",
+    "billing_rate_exists": "yes | no | unknown"
+  },
+
+  "project": {
+    "name": "",
+    "number": "",
+    "status": "existing | new | unknown",
+    "office_of_origin": "",
+    "category": "",
+    "system_type": "standard_quote | hourly_rate | lump_sum | pro_forma | unknown"
+  },
+
+  "task": {
+    "title_caps": "",
+    "description": "",
+    "task_type": "standard | hourly | lump_sum | pro_forma | unknown",
+    "revision": "",
+    "estimated_design_time_minutes": "",
+    "staff_time_minutes": "",
+    "billing_rate_category": ""
+  },
+
+  "financial": {
+    "quoted_amount": "",
+    "hourly_rate": "",
+    "lump_sum_value": "",
+    "currency": "GBP",
+    "vat_required": "yes | no | unknown"
+  },
+
+  "po": {
+    "po_required": "yes | no | unknown",
+    "po_number": "",
+    "po_status": "provided | missing | tbc | needs_chasing | unknown",
+    "pro_forma_required": "yes | no | unknown"
+  },
+
+  "credit": {
+    "credit_check_needed": "yes | no | unknown",
+    "suggested_credit_limit": "",
+    "trading_experience_summary": "",
+    "credit_risk_score": "",
+    "credit_outcome": "satisfactory | unsatisfactory | unclear | unknown"
+  },
+
+  "designer": {
+    "designer_name": "",
+    "prepared_by": "",
+    "checked_by": "",
+    "designer_notes": ""
+  },
+
+  "documents": {
+    "attachments": [],
+    "drawing_numbers": [],
+    "reference_numbers": [],
+    "quote_template_type": "",
+    "required_recipients": []
+  },
+
+  "tracker": {
+    "quote_date": "",
+    "quote_id": "",
+    "project_task_revision": "",
+    "status": "sent | waiting_for_po | waiting_for_form | accepted | lost | revised | unknown",
+    "next_action_date": "",
+    "chase_required": "yes | no | unknown"
+  }
+}

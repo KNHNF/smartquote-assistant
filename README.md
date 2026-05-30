@@ -4,7 +4,6 @@ SmartQuote Assistant is a small automation tool designed to reduce human error a
 It reads incoming emails from engineers or designers, extracts structured information using LLMs, prepares customer/admin emails, and generates a tracker row for internal systems.  
 The goal is to move toward an event‑driven workflow where incoming emails automatically trigger extraction, validation, and supervisor‑approved output.
 
----
 
 ## **Features**
 
@@ -29,7 +28,6 @@ The goal is to move toward an event‑driven workflow where incoming emails auto
 - **Model comparison**  
   Compare extraction quality across local LLMs and GPT.
 
----
 
 ## **Installation**
 
@@ -62,7 +60,6 @@ streamlit run streamlit_app.py
 
 (Optional) Add your OpenAI API key in the UI to enable GPT mode.
 
----
 
 ## **Running Local Models (Ollama)**
 
@@ -96,7 +93,6 @@ ollama pull phi3:mini
 Select **Local (free)** in the Streamlit UI.  
 No API key required.
 
----
 
 ## **How It Works**
 
@@ -121,7 +117,6 @@ Approve or reject before sending.
 ### 6. Compare models  
 See how different LLMs perform on the same email.
 
----
 
 ## **Architecture Overview**
 
@@ -135,7 +130,6 @@ When a new email arrives, SmartQuote Assistant follows a simple flow:
 6. Wait for supervisor approval before anything is sent  
 7. *(Planned)* Push the approved data straight into the database and send the emails automatically  
 
----
 
 ## **Repository Structure**
 
@@ -162,7 +156,6 @@ When a new email arrives, SmartQuote Assistant follows a simple flow:
 - `README.md`  
 - `LICENSE`
 
----
 
 ## **Model Performance (Based on Real Results)**
 
@@ -174,7 +167,6 @@ When a new email arrives, SmartQuote Assistant follows a simple flow:
 
 GPT is the only model that fully understood the structured email and returned almost all fields correctly.
 
----
 
 ## **Known Issues**
 
@@ -188,7 +180,6 @@ These do **not** affect extraction or JSON results — only the UI:
 
 These are planned to be addressed in future updates.
 
----
 
 ## **Future Work**
 
@@ -201,7 +192,6 @@ These are planned to be addressed in future updates.
 - Cleaner Streamlit UI and layout  
 - Optional screenshot or GIF demo once UI stabilizes  
 
----
 
 ## **Why This Project Exists**
 
@@ -214,6 +204,8 @@ SmartQuote Assistant reduces this friction by:
 - reducing human mistakes  
 - keeping supervisors in control  
 
-Originally prototyped during a university hackathon and later expanded into a full standalone tool with improved extraction logic, UI, and local model support.
-
 It’s a step toward a fully automated quote‑to‑task pipeline.
+
+## Project Background (hackathon note) 
+
+Originally prototyped during a university hackathon and later expanded into a full standalone tool with improved extraction logic, UI, and local model support.

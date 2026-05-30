@@ -1,0 +1,66 @@
+Hi team,
+
+Please prepare a quotation for the structural design of a rear extension at 123 Example Road, Bristol.
+
+Client: Example Client Ltd
+Customer Status: Existing
+Annual Form Received: Yes
+Billing Rate Exists: Yes
+
+Contact Name: Sarah Johnson
+Contact Email: sarah.johnson@exampleclient.co.uk
+Contact Phone: 07700 123456
+
+Project Name: Rear Extension
+Project Number: EX-2024-015
+Project Status: Existing
+Office of Origin: Bristol
+Category: Residential
+System Type: Standard Quote
+
+Task Title: Structural Design for Rear Extension
+Task Description: Full structural design package including beam calculations, foundation checks, and load assessments.
+Task Type: Standard
+Revision: A
+Estimated Design Time: 6 hours
+Staff Time: 360 minutes
+Billing Rate Category: Standard
+
+Quoted Amount: 850
+Hourly Rate: 95
+Lump Sum Value: 0
+Currency: GBP
+VAT Required: Yes
+
+PO Required: No
+PO Number: N/A
+PO Status: Not Required
+Pro-Forma Required: No
+
+Credit Check Needed: No
+Suggested Credit Limit: £10,000
+Trading Experience Summary: Long-term client, good payment history.
+Credit Risk Score: Low
+Credit Outcome: Satisfactory
+
+Attachments: EX-EXT-01.pdf, EX-EXT-02.pdf
+Drawing Numbers: EX-EXT-01, EX-EXT-02
+Reference Numbers: REF-001, REF-002
+Quote Template Type: Standard
+Required Recipients: sarah.johnson@exampleclient.co.uk
+
+Designer Name: Sample Designer
+Prepared By: Sample Designer
+Checked By: Senior Engineer
+Designer Notes: No issues identified.
+
+Quote Date: 2024-05-12
+Quote ID: Q-2024-015
+Project/Task/Revision: EX-2024-015 / Rear Extension / A
+Tracker Status: Sent
+Next Action Date: 2024-05-15
+Chase Required: No
+
+Regards,
+Sample Designer
+Structural Designer

@@ -39,7 +39,7 @@ def main():
     print("\n=== SmartQuote Assistant ===\n")
 
     model_choice = choose_model()
-    email_text = load_email("sample_email.txt")
+    email_text = load_email("sample_emails/sample_email_complete.txt")
 
     extracted, usage = extract_fields(email_text, model=model_choice)
     missing = check_missing_info(extracted)

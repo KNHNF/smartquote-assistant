@@ -29,7 +29,7 @@ The goal is to move toward an event‑driven workflow where incoming emails auto
 - **Model comparison**  
   Compare extraction quality across local LLMs and GPT.
 
----
+
 
 ## Installation
 
@@ -105,34 +105,21 @@ When a new email arrives, SmartQuote Assistant follows a simple flow:
 
 ## Repository Structure
 
-```
-smartquote-assistant/
-│
-├── streamlit_app.py
-├── requirements.txt
-├── sample_emails/
-│   └── sample_email_complete.txt
-│
-├── extraction/
-│   └── extraction.py
-│
-├── logic/
-│   └── Missing_info_checker_logic.py
-│
-├── tracker/
-│   └── tracker_row_generator.py
-│
-├── emails/
-│   ├── customer_email_generator.py
-│   └── admin_email_generator.py
-│
-└── results/
-    ├── phi3_mini.json
-    ├── mistral_7b.json
-    └── gpt.json
-```
+Application:
+  streamlit_app.py, FINAL_run_agent.py
 
----
+Core Logic:
+  extraction/, logic/, tracker/, emails/
+
+Data:
+  sample_emails/, schema/, demo_database/
+
+Outputs:
+  results/
+
+Project Files:
+  requirements.txt, README.md, LICENSE
+
 
 ## Model Performance (Based on Real Results)
 

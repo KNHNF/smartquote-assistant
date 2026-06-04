@@ -1,211 +1,125 @@
-# **SmartQuote Assistant**
+# SmartQuote Assistant
 
-SmartQuote Assistant is a small automation tool designed to reduce human error and manual data entry in engineering quote workflows.  
-It reads incoming emails from engineers or designers, extracts structured information using LLMs, prepares customer/admin emails, and generates a tracker row for internal systems.  
-The goal is to move toward an event‑driven workflow where incoming emails automatically trigger extraction, validation, and supervisor‑approved output.
+[![Python](https://img.shields.io/badge/Python-3.10+-3572A5?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-app-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![Ollama](https://img.shields.io/badge/Ollama-local%20LLM-black?style=flat-square)](https://ollama.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-a78bfa?style=flat-square)](LICENSE)
 
+LLM-powered automation tool that reads inbound engineering quote emails, extracts structured data, drafts customer and admin replies, and generates internal tracker rows — reducing manual data entry in quote workflows.
 
-## **Features**
+Supports free local models via Ollama (Mistral 7B, Phi-3 Mini) and OpenAI GPT.
 
-- **LLM‑powered field extraction**  
-  Supports both free local models (Mistral 7B, Phi3 Mini) and GPT mode for higher accuracy.
+---
 
-- **Structured JSON output**  
-  Extracts customer, project, task, financial, PO, credit, designer, documents, and tracker fields.
+## Model Performance
 
-- **Missing information detection**  
-  Highlights incomplete or unclear fields before approval.
+| Model | Field Extraction | Notes |
+|---|---|---|
+| GPT-4 | 96% | Near-perfect extraction and formatting |
+| Phi-3 Mini | 61% | Extracts core fields, misses complex ones |
+| Mistral 7B | 59% | Similar to Phi-3 on structured emails |
 
-- **Automatic email generation**  
-  Creates a customer‑friendly email and an internal admin email based on extracted data.
+GPT-4 is the only model that reliably handles all field types in a single pass. Local models are free and useful for prototyping or lower-stakes workflows.
 
-- **Tracker row generation**  
-  Produces a CSV‑ready row for internal quote tracking systems.
+---
 
-- **Supervisor approval flow**  
-  Allows a human to approve or reject the quote before sending.
+## How It Works
 
-- **Model comparison**  
-  Compare extraction quality across local LLMs and GPT.
+1. Paste or load an inbound quote email
+2. Choose a model (local via Ollama, or GPT)
+3. LLM extracts all structured fields into JSON
+4. App flags missing or ambiguous fields
+5. Generates a customer-facing email and internal admin email
+6. Supervisor approves or rejects before anything is sent
+7. Exports a CSV-ready tracker row for internal systems
 
+---
 
-## **Installation**
+## Quick Start
 
-Clone the repository:
+Requires Python 3.10+, and either Ollama (local mode) or an OpenAI API key (GPT mode).
 
 ```bash
-git clone https://github.com/yourusername/smartquote-assistant.git
+git clone https://github.com/KNHNF/smartquote-assistant.git
 cd smartquote-assistant
-```
 
-Create and activate a virtual environment:
-
-```bash
 python -m venv venv
-source venv/bin/activate        # macOS/Linux
-venv\Scripts\activate           # Windows
-```
+source venv/bin/activate       # macOS/Linux
+venv\Scripts\activate          # Windows
 
-Install dependencies:
-
-```bash
 pip install -r requirements.txt
-```
-
-Run the app:
-
-```bash
 streamlit run streamlit_app.py
 ```
 
-(Optional) Add your OpenAI API key in the UI to enable GPT mode.
+Add your OpenAI API key in the Streamlit UI to enable GPT mode. Local mode requires no API key.
 
+---
 
-## **Running Local Models (Ollama)**
+## Local Models via Ollama
 
-SmartQuote Assistant supports free local models (Mistral 7B, Phi3 Mini, Hermes 7B) using **Ollama**.  
-If you want to use local mode instead of GPT, install Ollama first.
-
-### **1. Install Ollama**
-- **Windows / macOS:**  
-  [https://ollama.com/download](https://ollama.com/download)  
-- **Linux:**  
-  ```bash
-  curl -fsSL https://ollama.com/install.sh | sh
-  ```
-
-### **2. Start Ollama**
-Ollama usually starts automatically. If needed:
-
-```bash
-ollama serve
-```
-
-### **3. Pull the models you want**
-Example:
+Install Ollama from [ollama.com](https://ollama.com/download), then pull models:
 
 ```bash
 ollama pull mistral:7b
 ollama pull phi3:mini
 ```
 
-### **4. Use Local Mode in the App**
-Select **Local (free)** in the Streamlit UI.  
-No API key required.
+No internet connection or API key required once models are downloaded.
 
+---
 
-## **How It Works**
+## Repository Structure
 
-### 1. Paste or load an email  
-The engineer/designer sends a structured or semi‑structured email.  
-You paste it into the app or load a sample.
+```
+smartquote-assistant/
+├── streamlit_app.py       main Streamlit UI
+├── FINAL_run_agent.py     agent runner (non-UI)
+├── extraction/            LLM field extraction logic
+├── logic/                 validation and missing field detection
+├── tracker/               CSV tracker row generation
+├── emails/                email draft generation
+├── sample_emails/         example input emails
+├── schema/                expected field schema
+├── demo_database/         demo data
+├── results/               output files
+├── requirements.txt
+└── README.md
+```
 
-### 2. Choose a model  
-- **Local mode (free):** Mistral 7B, Phi3 Mini  
-- **GPT mode:** Higher accuracy, token usage shown
+---
 
-### 3. Run extraction  
-The model returns structured JSON + missing fields + tracker row.
+## Known Issues (UI only)
 
-### 4. Review generated emails  
-- Customer email (external)  
-- Admin email (internal)
+These do not affect extraction accuracy or JSON output:
 
-### 5. Supervisor approval  
-Approve or reject before sending.
+- Streamlit Arrow serialization errors when lists appear in DataFrames
+- Duplicate button keys on unexpected component rerenders
+- Hermes 7B frequently returns invalid JSON
+- GPT token usage object requires normalization before display
 
-### 6. Compare models  
-See how different LLMs perform on the same email.
+---
 
+## Future Work
 
-## **Architecture Overview**
+- Event-driven mode: process emails automatically on arrival
+- Database integration: auto-populate internal systems on approval
+- Improved local model prompting to close the accuracy gap with GPT
+- Multi-email batch processing
+- Supervisor dashboard with audit trail
 
-When a new email arrives, SmartQuote Assistant follows a simple flow:
+---
 
-1. Read the incoming email  
-2. Use an LLM (local or GPT) to pull out all the structured fields  
-3. Check what information is missing or unclear  
-4. Build the internal tracker row  
-5. Draft the customer email and the admin email  
-6. Wait for supervisor approval before anything is sent  
-7. *(Planned)* Push the approved data straight into the database and send the emails automatically  
+## Background
 
+Originally prototyped at a university hackathon, then expanded into a standalone tool with improved extraction logic, supervisor approval flow, and local model support.
 
-## **Repository Structure**
+---
 
-**Application:**  
-- `streamlit_app.py`  
-- `FINAL_run_agent.py`
+## Author
 
-**Core Logic:**  
-- `extraction/`  
-- `logic/`  
-- `tracker/`  
-- `emails/`
+**Karan Homayounfar** · MSc Data Science, UWE Bristol
+[Portfolio](https://karan-portfolio-al7.pages.dev) · [LinkedIn](https://linkedin.com/in/karan-homayounfar) · [GitHub](https://github.com/KNHNF)
 
-**Data:**  
-- `sample_emails/`  
-- `schema/`  
-- `demo_database/`
+## License
 
-**Outputs:**  
-- `results/`
-
-**Project Files:**  
-- `requirements.txt`  
-- `README.md`  
-- `LICENSE`
-
-
-## **Model Performance (Based on Real Results)**
-
-| Model         | Completion | Notes |
-|---------------|------------|-------|
-| **Phi3 Mini** | 61%        | Extracts some fields, misses many |
-| **Mistral 7B**| 59%        | Slightly worse on this email |
-| **GPT**       | 96%        | Near‑perfect extraction, correct formatting |
-
-GPT is the only model that fully understood the structured email and returned almost all fields correctly.
-
-
-## **Known Issues**
-
-These do **not** affect extraction or JSON results — only the UI:
-
-- Streamlit Arrow serialization errors when lists appear in DataFrames  
-- Duplicate button IDs if keys are missing  
-- Hermes 7B often fails to return valid JSON  
-- Token usage object from GPT needs normalization  
-- Some UI elements rerun unexpectedly due to Streamlit’s reactive model  
-
-These are planned to be addressed in future updates.
-
-
-## **Future Work**
-
-- Event‑driven automation (process emails automatically on arrival)  
-- Database integration (auto‑populate internal systems)  
-- Improved local model prompting  
-- Better error handling for malformed emails  
-- Multi‑email batch processing  
-- Supervisor dashboard  
-- Cleaner Streamlit UI and layout  
-- Optional screenshot or GIF demo once UI stabilizes  
-
-
-## **Why This Project Exists**
-
-Engineering teams often receive structured emails from designers, but manually copying this information into internal systems is slow and error‑prone.  
-SmartQuote Assistant reduces this friction by:
-
-- extracting structured data  
-- generating emails  
-- preparing tracker rows  
-- reducing human mistakes  
-- keeping supervisors in control  
-
-It’s a step toward a fully automated quote‑to‑task pipeline.
-
-## Project Background (hackathon note) 
-
-Originally prototyped during a university hackathon and later expanded into a full standalone tool with improved extraction logic, UI, and local model support.
+MIT

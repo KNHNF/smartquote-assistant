@@ -2,6 +2,6 @@ python-dotenv
 openai
 jsonschema
 streamlit
-smtplib
-email
-openai
+requests
+pandas
+ 

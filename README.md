@@ -5,7 +5,7 @@
 [![Ollama](https://img.shields.io/badge/Ollama-local%20LLM-black?style=flat-square)](https://ollama.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-a78bfa?style=flat-square)](LICENSE)
 
-LLM-powered automation tool that reads inbound engineering quote emails, extracts structured data, drafts customer and admin replies, and generates internal tracker rows — reducing manual data entry in quote workflows.
+LLM-powered automation tool that reads inbound engineering quote emails, extracts structured data, drafts customer and admin replies, and generates internal tracker rows, reducing manual data entry in quote workflows.
 
 Supports free local models via Ollama (Mistral 7B, Phi-3 Mini) and OpenAI GPT.
 
